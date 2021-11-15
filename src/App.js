@@ -12,10 +12,10 @@ function App() {
         <a
           className="App-link"
           href="https://reactjs.org"
-          target="_blank"
+          target="_self"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React To Create Your Own Spinning Chicken!
         </a>
       </header>
     </div>
