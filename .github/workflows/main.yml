@@ -24,6 +24,6 @@ jobs:
         SLACK_COLOR: ${{ job.status }}
         SLACK_ICON: ':robot:'
         SLACK_MESSAGE: '${{ github.actor }} Kicked off workflow action:rocket:'
-        SLACK_TITLE: Pushed Release 
+        SLACK_TITLE: Pushed Release to forge
         SLACK_USERNAME: Git_Action_Bot
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
