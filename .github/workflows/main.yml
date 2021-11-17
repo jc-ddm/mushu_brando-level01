@@ -1,4 +1,4 @@
-name: Deployment To Forge
+name: Deployment To Forge With Notification
 on:
   workflow_dispatch:
   push:
@@ -8,8 +8,28 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Deploy with Curl
-      uses: wei/curl@v1
-      with:
-        args: -X GET ${{ secrets.FORGE_DEPLOY_URL }}
- 
+      - name: Deploy with SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          script: |
+            cd /home/forge/jfc-studio.com
+            git pull origin release
+            yarn build
+  slackNotification:
+    name: Slack Notification
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_COLOR: ${{ job.status }}
+        SLACK_ICON: ':robot:'
+        SLACK_MESSAGE: '${{ github.actor }} Kicked off workflow action:rocket:'
+        SLACK_TITLE: Pushed Release GOOD JOB!
+        SLACK_USERNAME: Git_Action_Bot
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
