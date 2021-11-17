@@ -1,0 +1,19 @@
+name: Create deploy promotion pull request
+on:
+  pull_request:
+    branches: [ main ]
+jobs:
+  deployPromotion:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: release
+      - name: Reset deploy branch
+        run: |
+          git fetch origin main:main
+          git reset --hard main
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          branch: /develop-promotion
