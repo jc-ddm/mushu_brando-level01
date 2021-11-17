@@ -17,6 +17,7 @@ function App() {
         >
           Learn React To Create Your Own Spinning Chicken!
         </a>
+        <p>Welcome</p>
       </header>
     </div>
   );
