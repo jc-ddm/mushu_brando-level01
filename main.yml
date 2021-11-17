@@ -1,0 +1,14 @@
+name: Deployment To Forge
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - release
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy with Curl
+      uses: wei/curl@v1
+      with:
+        args: -X GET ${{ secrets.FORGE_DEPLOY_URL }}
