@@ -1,3 +1,18 @@
+## Git Strategy
+
+![Image Example](https://github.com/jc-ddm/mushu_brando-level01/blob/develop/GitFlow.png?raw=true)
+
+We currently use [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow). Any features to the repository should be started as branches coming off the **Development** branch and be prefixed with `feature/` (or an appropriate semantic prefix for commits that don't technically constitute a true 'feature', e.g. 'refactor/[refactor-description]' etc...). Any patches for production should be applied directly to **Master** AND **Development** and be prefixed with `hotfix/`. All branches should be associated with a pull request for merging back into **Development** or **Master** branches. For non-trivial commits (or in general), having someone else approve your pull request is preferred.
+
+### Workflow for new feature branch
+- Start on Development branch (`git checkout development`)
+- Pull recent changes (`git pull`)
+- Create new branch (`git checkout -b feature/[feature-name]`)
+- Add changes (`git status` to see changes, `git add .` to add all changes)
+- Commit changes (`git commit -m 'commit message'`)
+- [Rebase if necessary: see note below]
+- Push to Github (`git push origin feature/[feature-name]`)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
