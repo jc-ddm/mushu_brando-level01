@@ -1,3 +1,7 @@
+## A General Update Strategy
+
+This update is important
+
 ## Git Strategy
 
 ![Image Example](https://github.com/jc-ddm/mushu_brando-level01/blob/develop/GitFlow.png?raw=true)
