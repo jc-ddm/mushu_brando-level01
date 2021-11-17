@@ -1,7 +1,7 @@
 name: Check for release-candidate
 on:
   pull_request:
-    branches: [ main ]
+    branches: [ develop ]
 jobs:
   deployPromotion:
     runs-on: ubuntu-latest
