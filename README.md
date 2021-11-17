@@ -11,7 +11,7 @@ We currently use [Gitflow](https://www.atlassian.com/git/tutorials/comparing-wor
 - Add changes (`git status` to see changes, `git add .` to add all changes)
 - Commit changes (`git commit -m 'commit message'`)
 - [Rebase if necessary: see note below]
-- Push to Github (`git push origin feature/[feature-name]`)
+- Push to Github (`git push origin feat/[feature-name]`)
 
 # Getting Started with Create React App
 
